@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html  %}
+  <body>
+
+    
+        <div class="page-container">
+                <input class="checkbox" id="checkbox-input" type="checkbox">
+                <label for="checkbox-input" class="checkbox-label">
+                  <img class="bars-sidemenu" src="/images/bars-solid.svg" alt="Font Awesome bars solid">
+                </label>
+            <div class="page-content">
+                <div class="side-menu">
+                    <a href="#">SETTINGS</a>
+                    <a href="#">PIVOTAL</a>
+                    <a href="#">GOALS</a>
+                    <a href="#">MONEY</a>               
+                </div>
+                  {{ content }}
+            </div>
+        </div>
+        
+
+  </body>
+</html>

@@ -1,0 +1,129 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+strong, b {
+  font-weight: bold;
+}
+em, i {
+  font-style: italic;
+}
+a img {
+  border: none;
+}
+/* END RESET*/
+
+/* GLOBAL STYLES*/
+:root {
+    --main-bg-color:#e9edf5; 
+    --sidemenu-bg:#0377fc; 
+  }
+html {
+  font-family: 'Roboto', sans-serif, arial;
+}
+
+/* HOME STYLES*/
+.page-container {
+    background-color: var(--main-bg-color);
+    height: 100vh; 
+    position: relative;
+}
+.page-content {
+    background-color: var(--main-bg-color);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* SIDEMENU STYLES*/
+.side-menu {
+    background-color: var(--sidemenu-bg,aqua);
+    display: none;  
+}
+.side-menu a {
+    color: #fff;
+    display: block; 
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.side-menu a:first-child {
+    margin-top: 30vh; 
+}
+.side-menu > a ~ a {
+  margin-top: 8vh; 
+}
+.bars-sidemenu {
+  height: 30px;
+  padding: 0.8rem; 
+  width: 30px; 
+}
+.checkbox, .checkbox-label {
+  opacity: 1;
+  left: 4.3%; 
+  position: absolute;
+  top: 3%; 
+}
+.checkbox:hover, .checkbox-label:hover {
+  cursor: pointer;
+}
+.checkbox:checked  ~ .page-content {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+.checkbox:checked  ~ .page-content .side-menu  {
+    display: block;
+    text-align: center;
+}
+.checkbox:checked  ~ .page-content .dashboard-container {
+  margin-left: -14.2857%;
+}
+#checkbox-input {
+    display: none; 
+}
+.checkbox-label img {
+  color: #fff;  
+}
+
+/* DASHBOARD STYLES*/
+.dashboard-container {
+    display: grid;
+    place-items: center center; 
+}
+.dashboard-object {
+  background-color: var(--sidemenu-bg);
+  height: 100px;
+  width: 100px; 
+}
