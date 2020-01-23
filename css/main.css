@@ -49,7 +49,7 @@ a img {
 /* GLOBAL STYLES*/
 :root {
     --main-bg-color:#e9edf5; 
-    --sidemenu-bg:#0377fc;
+    --sidemenu-bg:#28bd7a;
     --default-bg-dashboard: #fff;  
   }
 html {
@@ -121,29 +121,55 @@ html {
 /* DASHBOARD STYLES*/
 .dashboard-container {
     display: grid;
-    /* place-items: end end;  */
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    /*". header header" 1fr repeat(3, 1fr) 
-    / ". footer footer" repeat(3, 1fr);  */
-
+    grid-template-columns: 1fr 3fr 3fr 3fr;
+    grid-template-rows: 21.1764vh 10.5882vh 10.5882vh 15.8823vh 10.5882vh 21.1764vh; 
+    grid-template-areas: 
+    ". object1 object2 object3"
+    ". object4 object2 object3"
+    ". object4 object6 object5"
+    ". object4 object6 object5"
+    ". object7 .       object5"
+    ". object7 .       .";
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    
 }
-.dashboard-object {
+.dash-object {
+  grid-area: object1;
   background-color: var(--default-bg-dashboard);
   border: 2px solid pink; 
-  /* height: 300px;
-  width: 300px;  */
+  z-index: 50; 
 }
-.dashboard-object2 {
-  background-color: var(--default-bg-dashboard);
+.dash-object2 {
+  grid-area: object2;
+  background-color: var(--sidemenu-bg);
   border: 2px solid green; 
-  margin-left: -11.111%;
-  place-self: end end;
-  height: 100px;
-  width: 300px; 
+  margin-left: -11.111%; 
 }
-.dashboard-object3 {
+.dash-object3 {
+  grid-area: object3;
   background-color: var(--default-bg-dashboard);
   border: 2px solid blueviolet; 
-  /* height: 300px;
-  width: 300px;  */
+  z-index: 50; 
+  
+}
+.dash-object4 {
+  grid-area: object4;
+  background-color: blue;
+  border: 2px solid blueviolet; 
+}
+.dash-object5 {
+  grid-area: object5;
+  background-color: red;
+  border: 2px solid blueviolet; 
+}
+.dash-object6 {
+  grid-area: object6;
+  background-color: var(--sidemenu-bg);
+  border: 2px solid blueviolet; 
+}
+.dash-object7 {
+  grid-area: object7;
+  background-color: var(--default-bg-dashboard);
+  border: 2px solid blueviolet; 
 }
