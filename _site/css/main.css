@@ -49,7 +49,8 @@ a img {
 /* GLOBAL STYLES*/
 :root {
     --main-bg-color:#e9edf5; 
-    --sidemenu-bg:#0377fc; 
+    --sidemenu-bg:#0377fc;
+    --default-bg-dashboard: #fff;  
   }
 html {
   font-family: 'Roboto', sans-serif, arial;
@@ -92,7 +93,7 @@ html {
 }
 .checkbox, .checkbox-label {
   opacity: 1;
-  left: 4.3%; 
+  left: 3%; 
   position: absolute;
   top: 3%; 
 }
@@ -101,14 +102,14 @@ html {
 }
 .checkbox:checked  ~ .page-content {
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr 9fr;
 }
 .checkbox:checked  ~ .page-content .side-menu  {
     display: block;
     text-align: center;
 }
 .checkbox:checked  ~ .page-content .dashboard-container {
-  margin-left: -14.2857%;
+  margin-left: -11.111%;
 }
 #checkbox-input {
     display: none; 
@@ -120,10 +121,29 @@ html {
 /* DASHBOARD STYLES*/
 .dashboard-container {
     display: grid;
-    place-items: center center; 
+    /* place-items: end end;  */
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    /*". header header" 1fr repeat(3, 1fr) 
+    / ". footer footer" repeat(3, 1fr);  */
+
 }
 .dashboard-object {
-  background-color: var(--sidemenu-bg);
+  background-color: var(--default-bg-dashboard);
+  border: 2px solid pink; 
+  /* height: 300px;
+  width: 300px;  */
+}
+.dashboard-object2 {
+  background-color: var(--default-bg-dashboard);
+  border: 2px solid green; 
+  margin-left: -11.111%;
+  place-self: end end;
   height: 100px;
-  width: 100px; 
+  width: 300px; 
+}
+.dashboard-object3 {
+  background-color: var(--default-bg-dashboard);
+  border: 2px solid blueviolet; 
+  /* height: 300px;
+  width: 300px;  */
 }
