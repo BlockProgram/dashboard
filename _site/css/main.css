@@ -48,9 +48,11 @@ a img {
 
 /* GLOBAL STYLES*/
 :root {
-    --main-bg-color:#e9edf5; 
-    --sidemenu-bg:#28bd7a;
+    --main-bg-color:#dae1f0; 
+    --sidemenu-bg:#200cf5;
+    --first-dash-color: #6456f5; 
     --default-bg-dashboard: #fff;  
+    --shadow-dash: 3px 3px 10px #000; 
   }
 html {
   font-family: 'Roboto', sans-serif, arial;
@@ -64,7 +66,7 @@ html {
 }
 .page-content {
     background-color: var(--main-bg-color);
-    height: 100vh;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -77,7 +79,7 @@ html {
 .side-menu a {
     color: #fff;
     display: block; 
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     text-decoration: none;
 }
 .side-menu a:first-child {
@@ -87,29 +89,29 @@ html {
   margin-top: 8vh; 
 }
 .bars-sidemenu {
-  height: 30px;
+  height: 25px;
   padding: 0.8rem; 
-  width: 30px; 
+  width: 25px; 
 }
 .checkbox, .checkbox-label {
   opacity: 1;
   left: 3%; 
   position: absolute;
-  top: 3%; 
+  top: 1%; 
 }
 .checkbox:hover, .checkbox-label:hover {
   cursor: pointer;
 }
 .checkbox:checked  ~ .page-content {
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 10fr;
 }
 .checkbox:checked  ~ .page-content .side-menu  {
     display: block;
     text-align: center;
 }
 .checkbox:checked  ~ .page-content .dashboard-container {
-  margin-left: -11.111%;
+  margin-left: -10%;
 }
 #checkbox-input {
     display: none; 
@@ -121,55 +123,121 @@ html {
 /* DASHBOARD STYLES*/
 .dashboard-container {
     display: grid;
+    gap: 2vh; 
     grid-template-columns: 1fr 3fr 3fr 3fr;
     grid-template-rows: 21.1764vh 10.5882vh 10.5882vh 15.8823vh 10.5882vh 21.1764vh; 
     grid-template-areas: 
     ". object1 object2 object3"
     ". object4 object2 object3"
-    ". object4 object6 object5"
-    ". object4 object6 object5"
-    ". object7 .       object5"
+    ". object4 object5 object6"
+    ". object4 object5 object6"
+    ". object7 object5 ."
     ". object7 .       .";
-    margin-bottom: 5vh;
-    margin-top: 5vh;
-    
+    margin: 4vh 2vh 5vh 0;     
 }
-.dash-object {
-  grid-area: object1;
+.dash-object1, .dash-object2, .dash-object3, .dash-object4, 
+.dash-object5, .dash-object6, .dash-object7 {
+  box-shadow: var(--shadow-dash); 
+}
+
+.dash-object1 {
   background-color: var(--default-bg-dashboard);
-  border: 2px solid pink; 
-  z-index: 50; 
+  display: grid;
+  grid-area: object1;
+  grid-template: 1fr 2fr / 1fr 1fr;
+  grid-template-areas:
+  "title-obj1 pivotal-logo"
+  "empire-obj1 coding-obj1";  
+
 }
+.title-obj1 {
+  grid-area: title-obj1;
+  min-width: 143px; 
+}
+.pivotal-logo {
+  grid-area: pivotal-logo;
+  height: 6vh; 
+}
+.empire-obj1, .coding-obj1 {
+  background-color: var(--first-dash-color);
+  /* border: 1px solid#000;  */
+  color: #fff; 
+  padding: 0.8rem; 
+  place-self: center center;
+  text-decoration: none;
+}
+.empire-obj1 {
+  grid-area: empire-obj1;
+}
+.coding-obj1 {
+  grid-area: coding-obj1;
+}
+
 .dash-object2 {
-  grid-area: object2;
   background-color: var(--sidemenu-bg);
-  border: 2px solid green; 
-  margin-left: -11.111%; 
+  display: grid;
+  grid-area: object2;
 }
 .dash-object3 {
-  grid-area: object3;
   background-color: var(--default-bg-dashboard);
-  border: 2px solid blueviolet; 
-  z-index: 50; 
-  
+  display: grid;
+  grid-area: object3;
 }
+.fa-euro-sign {
+  color:purple;
+} 
 .dash-object4 {
+  background-color: var(--first-dash-color);
+  display: grid; 
   grid-area: object4;
+}
+.dash-object4 .square-icon {
   background-color: blue;
-  border: 2px solid blueviolet; 
+  place-self: start start; 
+}
+.fa-weebly {
+  color: brown;
 }
 .dash-object5 {
+  background-color: var(--default-bg-dashboard);
+  display: grid;
   grid-area: object5;
-  background-color: red;
-  border: 2px solid blueviolet; 
 }
 .dash-object6 {
-  grid-area: object6;
-  background-color: var(--sidemenu-bg);
-  border: 2px solid blueviolet; 
+  background-color: var(--first-dash-color);
+  display: grid;
+  grid-area: object6; 
+}
+.dash-object6 .fa-bed {
+  font-size: 5vh;
+  color: blue;
 }
 .dash-object7 {
-  grid-area: object7;
-  background-color: var(--default-bg-dashboard);
-  border: 2px solid blueviolet; 
+  background-color: var(--sidemenu-bg);
+  display: grid;
+  grid-area: object7; 
+  height: 85%; 
+}
+.dash-object7 .fa-laptop-code {
+  font-size: 5vh;
+  color: #000;
+}
+.title-dash {
+  place-self: center start;
+  margin-left: 2vh;
+  font-size: 2.5vh;
+}
+.square-icon {
+  background-color: #fff;
+  height: 7vh;
+  position: relative;
+  place-self: start end; 
+  width: 7vh;
+}
+.icon-dash {
+  font-size: 6vh; 
+  left: 50%;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
