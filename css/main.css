@@ -49,8 +49,8 @@ a img {
 /* GLOBAL STYLES*/
 :root {
     --main-bg-color:#dae1f0; 
-    --sidemenu-bg:#200cf5;
-    --first-dash-color: #6456f5; 
+    --sidemenu-bg: rgba(42, 24, 237,0.9);
+    --first-dash-color: rgba(99, 86, 245,0.7); 
     --default-bg-dashboard: #fff;  
     --shadow-dash: 3px 3px 10px #000; 
   }
@@ -131,8 +131,8 @@ html {
     ". object4 object2 object3"
     ". object4 object5 object6"
     ". object4 object5 object6"
-    ". object7 object5 ."
-    ". object7 .       .";
+    ". object7 object5 object8"
+    ". object7 .       object8";
     margin: 4vh 2vh 5vh 0;     
 }
 .dash-object1, .dash-object2, .dash-object3, .dash-object4, 
@@ -141,14 +141,13 @@ html {
 }
 
 .dash-object1 {
-  background-color: var(--default-bg-dashboard);
+  background-color: var(--sidemenu-bg);
   display: grid;
   grid-area: object1;
   grid-template: 1fr 2fr / 1fr 1fr;
   grid-template-areas:
   "title-obj1 pivotal-logo"
   "empire-obj1 coding-obj1";  
-
 }
 .title-obj1 {
   grid-area: title-obj1;
@@ -159,9 +158,8 @@ html {
   height: 6vh; 
 }
 .empire-obj1, .coding-obj1 {
-  background-color: var(--first-dash-color);
-  /* border: 1px solid#000;  */
-  color: #fff; 
+  background-color: var(--default-bg-dashboard);
+  color: #000; 
   padding: 0.8rem; 
   place-self: center center;
   text-decoration: none;
@@ -172,63 +170,119 @@ html {
 .coding-obj1 {
   grid-area: coding-obj1;
 }
-
 .dash-object2 {
-  background-color: var(--sidemenu-bg);
-  display: grid;
-  grid-area: object2;
-}
-.dash-object3 {
   background-color: var(--default-bg-dashboard);
   display: grid;
-  grid-area: object3;
+  grid-area: object2;
+  grid-template-rows: repeat(6, 1fr); 
 }
+.dash-object2 p {
+  place-self: center start;
+}
+.firstrow-obj2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.dash-object3 {
+  background-color: var(--first-dash-color);
+  display: grid;
+  grid-area: object3;
+  grid-template-rows: 1fr 2fr 1fr; 
+}
+.firstrow-obj3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.secondrow-obj3 {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+.progressbar-obj3 {
+  background-color:green;
+  height: 20px;
+  width: 80%; 
+} 
 .fa-euro-sign {
-  color:purple;
+  color: #fff;
 } 
 .dash-object4 {
   background-color: var(--first-dash-color);
   display: grid; 
   grid-area: object4;
+  grid-template-rows: repeat(5, 1fr); 
+}
+.firstrow-obj4 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 .dash-object4 .square-icon {
-  background-color: blue;
   place-self: start start; 
 }
 .fa-weebly {
-  color: brown;
+  color: #fff;
 }
 .dash-object5 {
-  background-color: var(--default-bg-dashboard);
+  background-color: var(--sidemenu-bg);
   display: grid;
   grid-area: object5;
+  grid-template-rows: 1fr 4fr; 
+}
+.firstrow-obj5 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.dash-object5 .square-icon {
+  place-self: start start; 
+}
+.fa-lightbulb {
+  color: orange;
 }
 .dash-object6 {
-  background-color: var(--first-dash-color);
+  background-color: var(--default-bg-dashboard);
   display: grid;
   grid-area: object6; 
+  grid-template-rows: 1fr 3fr; 
+}
+.dash-object6 .square-icon {
+  place-self: start start; 
 }
 .dash-object6 .fa-bed {
   font-size: 5vh;
   color: blue;
 }
+.firstrow-obj6 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
 .dash-object7 {
-  background-color: var(--sidemenu-bg);
+  background-color: var(--default-bg-dashboard);
   display: grid;
   grid-area: object7; 
+  grid-template-rows: 1fr 3fr; 
   height: 85%; 
 }
 .dash-object7 .fa-laptop-code {
   font-size: 5vh;
   color: #000;
 }
+.firstrow-obj7 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.dash-object8 {
+  display: grid; 
+  grid-area: object8; 
+  height: 85%; 
+}
+.dash-object8 .title-dash {
+  place-self: end end;
+}
 .title-dash {
   place-self: center start;
-  margin-left: 2vh;
   font-size: 2.5vh;
 }
 .square-icon {
-  background-color: #fff;
+  background-color: transparent; 
   height: 7vh;
   position: relative;
   place-self: start end; 
