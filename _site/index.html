@@ -19,35 +19,27 @@
                 </label>
             <div class="page-content">
                 <div class="side-menu">
-                    <a href="#">SETTINGS</a>
-                    <a href="#">PIVOTAL</a>
-                    <a href="#">GOALS</a>
-                    <a href="#">MONEY</a>               
+                    <a 
+                      href="https://github.com/BlockProgram/dashboard" target="_blank" rel="noopener">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a 
+                      href="#">SETTINGS
+                    </a>
+                    <a 
+                      href="https://ouraring.com/" target="_blank" rel="noopener">SLEEP
+                    </a>              
                 </div>
-                  <!-- 
-1) Create Title div for all objects, 2 classes = title-dash title-objectX
-
-2) Organise structure for each object: 
-
-- Object1: 
-grid-template-columns: 1fr 2fr; 
-
-2) Fill objects 1 by 1 
- -->
-
-
-
-
-
-
-<div class="dashboard-container"> 
+                  <div class="dashboard-container"> 
 
     <div class="dash-object1">
         <div class="firstrow-obj1">
             <p class="title-dash title-obj1">PIVOTAL TASKS </p>
             <div class="square-icon">
-                <a href=""><img class="pivotal-logo icon-dash" src="/images/pivotal-logo.png" 
-                alt="Pivotal Tracker logo"></a>
+                <a href="https://www.pivotaltracker.com/dashboard" target="_blank" rel="noopener">
+                    <img class="pivotal-logo icon-dash" src="/images/pivotal-logo.png" 
+                    alt="Pivotal Tracker logo">
+                </a>
             </div> 
         </div>
         <div class="secondrow-obj1">
@@ -69,10 +61,24 @@ grid-template-columns: 1fr 2fr;
                 <a href=""><i class="icon-dash fas fa-bullseye"></i></a>
             </div>
         </div>
-        <p>1.</p>
-        <p>2.</p>
-        <p>3.</p>
-        <p>4.</p>
+        <div class="secondrow-obj2">
+            <input class="check-obj2" type="checkbox">
+            <p class="text-obj2">
+                Find a way to style & keep checked inputs on refresh
+            </p>
+            <input class="check-obj2" type="checkbox"> 
+            <p class="text-obj2">
+                Reach €10,000 of savings
+            </p>
+            <input class="check-obj2" type="checkbox">
+            <p class="text-obj2">
+                Become an operational and employed Front-End Developer
+            </p>
+            <input class="check-obj2" type="checkbox">
+            <p class="text-obj2">
+                Improve my health, productivity and mindset on a daily basis 
+            </p>
+        </div>
     </div>
 
     <div class="dash-object3">
@@ -83,10 +89,16 @@ grid-template-columns: 1fr 2fr;
             </div>
         </div>
         <div class="secondrow-obj3">
-            <div class="progressbar-obj3"></div>
-            <p>50%</p>
+            <div class="progressbar-obj3">
+                <div class="actualprogress-obj3"></div>
+            </div>
+            <p class="text-obj3">
+                50%
+            </p>
+            <p class="text-obj3">
+                5000/€10,000
+            </p>
         </div>
-        <p>x€</p>
     </div>
 
     <div class="dash-object4">
@@ -94,12 +106,37 @@ grid-template-columns: 1fr 2fr;
             <div class="square-icon">
                 <a href=""><i class="icon-dash fab fa-weebly"></i></a>
             </div>
-            <p class="title-dash title-obj4">WEEKLY RITUALS</p>
+            <p class="title-dash title-obj4">WEEKLY GOALS</p>
         </div>
-        <input type="checkbox">
-        <input type="checkbox">
-        <input type="checkbox">
-        <input type="checkbox">
+        <div class="secondrow-obj4">
+            <div class="checkboxes-wrapper1">
+                <input class="check-obj4" type="checkbox">
+                <input class="check-obj4" type="checkbox">
+            </div>
+            <p class="text-obj4">
+                READ
+            </p>
+            <div class="checkboxes-wrapper2">
+                <input class="check-obj4" type="checkbox">
+                <input class="check-obj4" type="checkbox">
+                <input class="check-obj4" type="checkbox">
+            </div>            
+            <p class="text-obj4">
+                WORKOUT
+            </p>
+            <input class="check-obj4" type="checkbox">
+            <p class="text-obj4">
+                FINISH DASHBOARD 
+            </p>
+            <input class="check-obj4" type="checkbox">
+            <p class="text-obj4">
+                ...
+            </p>
+            <input class="check-obj4" type="checkbox">
+            <p class="text-obj4">
+                ...
+            </p>
+        </div>
     </div>
 
     <div class="dash-object5">
@@ -109,26 +146,60 @@ grid-template-columns: 1fr 2fr;
             </div>
             <p class="title-dash title-obj5">INSPIRATION</p>
         </div>
-        <p>The future belongs to those who prepare for it today</p>
+        <div class="statement-obj5">
+            <p class="quote-obj5">The future belongs to those who prepare for it today.</p>
+            <p class="quote-author">Malcolm X</p>
+        </div>
     </div>
 
     <div class="dash-object6">
         <div class="firstrow-obj6">
+            <p class="title-dash title-obj6">SLEEP</p>
             <div class="square-icon">
                 <a href=""><i class="icon-dash fas fa-bed"></i></a>
             </div>
-            <p class="title-dash title-obj6">SLEEP</p>
+        </div>
+        <div class="secondrow-obj6">
+            <div class="subcol-obj6">
+                <p class="subtitle-obj6"> LAST NIGHT</p>
+                <p class="text-obj6">7H30</p>
+            </div>
+            <div class="subcol-obj6">
+                <p class="subtitle-obj6"> WEEKLY AVERAGE</p>
+                <p class="text-obj6">7H</p>
+            </div>
+            <div class="subcol-obj6">
+                <p class="subtitle-obj6">TIME TO SLEEP</p>
+                <p class="text-obj6">1H</p>
+            </div>  
         </div>
     </div>
 
     <div class="dash-object7">
         <div class="firstrow-obj7">
-            <p class="title-dash title-obj7">CODING MILESTONES</p>
             <div class="square-icon">
                 <a href=""><i class="icon-dash fas fa-laptop-code"></i></a>
             </div>
+            <p class="title-dash title-obj7">CODING MILESTONES</p>
         </div>
-        <p>hello sir</p>
+        <div class="secondrow-obj7">
+            <input class="check-obj7" type="checkbox">
+            <p class="text-obj7">
+                CSS
+            </p>
+            <input class="check-obj7" type="checkbox"> 
+            <p class="text-obj7">
+                JS
+            </p>
+            <input class="check-obj7" type="checkbox">
+            <p class="text-obj7">
+                APIs
+            </p>
+            <input class="check-obj7" type="checkbox">
+            <p class="text-obj7">
+                REACT
+            </p>
+        </div>
     </div>
 
     <div class="dash-object8">
