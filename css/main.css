@@ -444,3 +444,45 @@ input:hover {
   top: 50%;
   transform: translate(-50%,-50%);
 }
+
+/* MEDIA QUERY */ 
+@media (max-width: 1050px) {
+  html {
+    width: 100%;
+  }
+  p {
+    font-size: 1.8vh;
+  }
+  .side-menu a {
+    font-size: 1rem;
+}
+  .dashboard-container {
+    display: grid;
+    grid-template: repeat(7, auto) / 1fr 6fr;
+    grid-template-areas: 
+    ". object1 "
+    ". object2 "
+    ". object3 "
+    ". object4 "
+    ". object6 "
+    ". object5 "
+    ". object7 "; 
+    overflow: hidden;
+    margin: 8vh 0vh 0vh 6vh;    
+  }
+  .checkbox:checked  ~ .page-content .dashboard-container {
+    /* margin-left: -16,6666666667%; */
+    margin-left: -3%;
+  }
+  .checkbox:checked  ~ .page-content {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+  }
+  .dash-object6 {
+    height: 100%; 
+  }
+  .secondrow-obj6 {
+    box-sizing: border-box;
+    grid-template-columns: 31% 32% 26.4%;
+  }
+}
