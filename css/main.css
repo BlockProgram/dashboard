@@ -110,7 +110,7 @@ input:hover {
   top: 1%; 
 }
 .checkbox:hover, .checkbox-label:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .checkbox:checked  ~ .page-content {
     display: grid;
