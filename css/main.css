@@ -68,30 +68,32 @@ input:hover {
 
 /* HOME STYLES*/
 .page-container {
-    background-color: var(--main-bg-color);
-    height: 100vh; 
-    position: relative;
-}
-.page-content {
-    background-color: var(--main-bg-color);
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
+  background-color: var(--main-bg-color);
+  display: grid; 
+  height: auto; 
+  grid-template: 1fr 13fr / 1fr 11fr; 
+  grid-template-areas: 
+  "label checkbox"
+  "sidemenu dashboard"; 
+  position: relative;
 }
 
 /* SIDEMENU STYLES*/
 .side-menu {
-    background-color: var(--sidemenu-bg,aqua);
-    display: none; 
+  background-color: var(--sidemenu-bg,aqua);
+  grid-area: sidemenu;
+  transition: opacity 0.3s ease-out; 
 }
 .side-menu a {
-    color: #fff;
-    display: block; 
-    font-size: 1.1rem;
-    text-decoration: none;
+  color: #fff;
+  display: block; 
+  font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s linear; 
 }
 .side-menu a:first-child {
-    margin-top: 30vh; 
+  margin-top: 30vh; 
 }
 .side-menu > a ~ a {
   margin-top: 8vh; 
@@ -104,27 +106,22 @@ input:hover {
   padding: 0.8rem; 
   width: 3.5vh; 
 }
-.checkbox, .checkbox-label {
-  left: 2.4%; 
-  position: absolute;
-  top: 1%; 
+#checkbox-input {
+  display: none; 
+  grid-area: checkbox;
+  left: -5%; 
+  place-self: center start; 
+  position: relative;  
 }
 .checkbox:hover, .checkbox-label:hover {
     cursor: pointer;
 }
-.checkbox:checked  ~ .page-content {
-    display: grid;
-    grid-template-columns: 1fr 10fr;
+.checkbox:checked  ~ .side-menu  {
+    opacity: 0; 
 }
-.checkbox:checked  ~ .page-content .side-menu  {
-    display: block;
-    text-align: center;
-}
-.checkbox:checked  ~ .page-content .dashboard-container {
-  margin-left: -10%;
-}
-#checkbox-input {
-    display: none; 
+.checkbox-label {
+  grid-area: label; 
+  place-self: center center; 
 }
 .checkbox-label img {
   color: #fff;  
@@ -136,17 +133,18 @@ input:hover {
 /* DASHBOARD STYLES*/
 .dashboard-container {
     display: grid;
-    gap: 2vh; 
-    grid-template-columns: 1fr 3fr 3fr 3fr;
+    gap: 2vh;
+    grid-area: dashboard;  
+    grid-template-columns: 3fr 3fr 3fr;
     grid-template-rows: 21.1764vh 10.5882vh 10.5882vh 15.8823vh 10.5882vh 21.1764vh; 
     grid-template-areas: 
-    ". object1 object2 object3"
-    ". object4 object2 object7"
-    ". object4 object5 object7"
-    ". object4 object5 object7"
-    ". object6 object5 ."
-    ". object6 .       object8";
-    margin: 4vh 2vh 5vh 0;     
+    "object1 object2 object3"
+    "object4 object2 object7"
+    "object4 object5 object7"
+    "object4 object5 object7"
+    "object6 object5 ."
+    "object6 .       object8";
+    margin: 0 3vh 5vh;     
 }
 .dashboard-container p {
   margin: 0 3vh 0;
@@ -183,7 +181,7 @@ input:hover {
   padding: 0.8rem; 
   place-self: center center;
   text-decoration: none;
-  transition: color 0.75s ease-out, border 0.75s ease-out; 
+  transition: color 0.2s ease-out 0.1s, border 0.2s ease-out; 
 }
 .empire-obj1 p, .coding-obj1 p {
   font-size: 2vh; 
@@ -342,7 +340,7 @@ input:hover {
   display: grid;
   grid-area: object6; 
   grid-template-rows: 1fr 3fr; 
-  height: 80%; 
+  height: 75%; 
 }
 .dash-object6 .square-icon {
   place-self: center end; 
@@ -369,7 +367,7 @@ input:hover {
   border-top: 1px solid #000;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  height: 16.4vh; 
+  height: 14.7vh; 
 }
 .subcol-obj6:nth-child(1) { 
   border-right: 1px solid #000; 
@@ -447,7 +445,7 @@ input:hover {
 }
 
 /* MEDIA QUERY */ 
-@media (max-width: 1050px) {
+@media (max-width: 950px) {
   html {
     width: 100%;
   }
@@ -455,29 +453,26 @@ input:hover {
     font-size: 1.8vh;
   }
   .side-menu a {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    padding: 0.3rem; 
 }
+  .page-container {
+    grid-template: 1fr 20fr / 1fr 13fr; 
+  }
+
   .dashboard-container {
     display: grid;
     grid-template: repeat(7, auto) / 1fr 6fr;
     grid-template-areas: 
-    ". object1 "
-    ". object2 "
-    ". object3 "
-    ". object4 "
-    ". object6 "
-    ". object5 "
-    ". object7 "; 
+    "object1 "
+    "object2 "
+    "object3 "
+    "object4 "
+    "object6 "
+    "object5 "
+    "object7 "; 
     overflow: hidden;
-    margin: 8vh 0vh 0vh 6vh;    
-  }
-  .checkbox:checked  ~ .page-content .dashboard-container {
-    /* margin-left: -16,6666666667%; */
-    margin-left: -3%;
-  }
-  .checkbox:checked  ~ .page-content {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
+    margin: 0 3vw 6vw;    
   }
   .dash-object6 {
     height: 100%; 
