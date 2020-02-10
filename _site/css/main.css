@@ -82,8 +82,7 @@ input:hover {
 .side-menu {
   background-color: var(--sidemenu-bg,aqua);
   grid-area: sidemenu;
-  opacity: 0; 
-  transition: opacity 0.3s ease-out; 
+  display: none; 
 }
 .side-menu a {
   color: #fff;
@@ -115,10 +114,10 @@ input:hover {
   position: relative;  
 }
 .checkbox:hover, .checkbox-label:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .checkbox:checked  ~ .side-menu  {
-    opacity: 1; 
+  display: block; 
 }
 .checkbox-label {
   grid-area: label; 
