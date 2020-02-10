@@ -48,12 +48,21 @@ a img {
 
 /* GLOBAL STYLES*/
 :root {
-    --main-bg-color:#dae1f0; 
-    --sidemenu-bg: rgba(85, 47, 189, 1);
-    --first-dash-color: rgba(0, 0, 0, 1); 
-    --default-bg-dashboard: #fff;  
-    --shadow-dash: 3px 3px 10px #000; 
+  --main-bg-color:#dae1f0; 
+  --sidemenu-bg: rgba(85, 47, 189, 1);
+  --first-dash-color: rgba(0, 0, 0, 1); 
+  --default-bg-dashboard: #fff;  
+  --shadow-dash: 3px 3px 10px #000; 
+  --font-color: #000; 
   }
+[data-theme="dark"] {
+  --main-bg-color: #353532;
+  --sidemenu-bg: #331C71; 
+  --first-dash-color: rgba(0, 0, 0, 1); 
+  --default-bg-dashboard: #767674; 
+  --shadow-dash: 3px 3px 10px #000; 
+  --font-color: #fff; 
+}
 html {
   font-family: 'Roboto', sans-serif, arial;
   cursor: default;
@@ -142,7 +151,7 @@ input:hover {
     "object4 object2 object7"
     "object4 object5 object7"
     "object4 object5 object7"
-    "object6 object5 ."
+    "object6 object5 object8"
     "object6 .       object8";
     margin: 0 3vh 5vh;     
 }
@@ -176,7 +185,7 @@ input:hover {
   grid-template-columns: 1fr 1fr;
 }
 .empire-obj1, .coding-obj1 {
-  background-color: var(--default-bg-dashboard);
+  background-color: #fff;
   color: #000; 
   padding: 0.8rem; 
   place-self: center center;
@@ -193,12 +202,14 @@ input:hover {
 }
 .dash-object2 {
   background-color: var(--default-bg-dashboard);
+  color: var(--font-color); 
   display: grid;
   grid-area: object2;
   grid-template-rows: 1fr 4fr; 
 }
 .dash-object2 p {
   place-self: center start;
+  /* color: #fff;  */
 }
 .firstrow-obj2 {
   display: grid;
@@ -337,6 +348,7 @@ input:hover {
 }
 .dash-object6 {
   background-color: var(--default-bg-dashboard);
+  color: var(--font-color); 
   display: grid;
   grid-area: object6; 
   grid-template-rows: 1fr 3fr; 
@@ -384,12 +396,13 @@ input:hover {
   place-self: center center;
 }
 .text-obj6 {
-  color: var(--default-bg-dashboard); 
+  color: #fff; 
   font-size: 3vh;
   place-self: center center;  
 }
 .dash-object7 {
   background-color: var(--default-bg-dashboard);
+  color: var(--font-color); 
   display: grid;
   grid-area: object7; 
   grid-template-rows: 1fr 4fr; 
@@ -419,7 +432,8 @@ input:hover {
 .dash-object8 {
   display: grid; 
   grid-area: object8; 
-  height: 85%; 
+  height: 73%; 
+  place-content: end end;
 }
 .dashboard-container .dash-object8 .title-dash {
   place-self: end end;
@@ -444,6 +458,61 @@ input:hover {
   transform: translate(-50%,-50%);
 }
 
+/* COLOR SWITCHES STYLES  */
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+.text-switch {
+  color: var(--font-color); 
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+.theme-switch input {
+  display:none;
+}
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
 /* MEDIA QUERY */ 
 @media (max-width: 950px) {
   html {
@@ -464,6 +533,7 @@ input:hover {
     display: grid;
     grid-template: repeat(7, auto) / 1fr 6fr;
     grid-template-areas: 
+    "object8"
     "object1 "
     "object2 "
     "object3 "
@@ -481,4 +551,14 @@ input:hover {
     box-sizing: border-box;
     grid-template-columns: 31% 32% 26.4%;
   }
+  .dash-object8 {
+    height: 100%; 
+  }
+  .theme-switch-wrapper {
+    margin-bottom: 5vh;
+  }
+  .text-switch { 
+    font-size: 1rem;
+  }
+
 }
