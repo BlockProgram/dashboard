@@ -232,7 +232,7 @@ input:hover {
   background-color: var(--sidemenu-bg);
   display: grid;
   grid-area: object3;
-  grid-template-rows: 1fr 2fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
 }
 .firstrow-obj3 {
   display: grid;
@@ -247,27 +247,49 @@ input:hover {
 } 
 .secondrow-obj3 {
   display: grid;
-  grid-template: 75% 25% / 5fr 1fr;
+  grid-template-columns:  5fr 1fr;
   place-items: center center;
 }
 .progressbar-obj3 {
   background-color: var(--default-bg-dashboard);
   height: 25px;
-  width: 80%; 
+  width: 80%;
 } 
 .actualprogress-obj3 {
   background-image: linear-gradient(to right,#7aff8c 30%, #00a616 70%);
   height: 25px;
-  width: 50%; 
+  width: 0%; 
+  max-width: 100%;  
 } 
-.text-obj3 {
+.thirdrow-obj3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  place-items: center center;
+  position: relative;
+}
+.dashboard-container .numbers-fortune {
   color: #fff; 
   font-size: 2.5vh;
-  place-self: center center;  
+  margin: 0; 
 }
-.text-obj3:last-child {
-  margin-top: 3vh; 
-}
+#textarea-fortune {  
+  border: 1.5px solid #00a616;
+  padding: 0.5vh;
+} 
+.button-fortune { 
+  padding: 0.4vh; 
+  position: relative; 
+  top: -12%; 
+  left: 8%; 
+ } 
+.firsttext-obj3 {  
+  place-self: center end;
+} 
+.secondtext-obj3 {  
+  padding-left: 0.7vh;
+  place-self: center start;
+
+} 
 .dash-object4 {
   background-color: var(--sidemenu-bg);
   display: grid; 
