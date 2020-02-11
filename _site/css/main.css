@@ -247,13 +247,13 @@ input:hover {
 } 
 .secondrow-obj3 {
   display: grid;
-  grid-template-columns:  5fr 1fr;
+  grid-template-columns:  9fr 1fr 1fr;
   place-items: center center;
 }
 .progressbar-obj3 {
   background-color: var(--default-bg-dashboard);
   height: 25px;
-  width: 80%;
+  width: 85%;
 } 
 .actualprogress-obj3 {
   background-image: linear-gradient(to right,#7aff8c 30%, #00a616 70%);
@@ -261,9 +261,12 @@ input:hover {
   width: 0%; 
   max-width: 100%;  
 } 
+.dashboard-container .signs-obj3 {
+  margin: 0; 
+}
 .thirdrow-obj3 {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 5% 1fr;
   place-items: center center;
   position: relative;
 }

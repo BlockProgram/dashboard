@@ -1,30 +1,28 @@
-// FORTUNE DASHBOARD 
+// FORTUNE DASHBOARD : Take input from TextArea, print it to page, save it to localStorage,
+// calculate percentage and save to localStorage. Then synchronize % & progress bar
+document.addEventListener("DOMContentLoaded", function() {
 
+    let inputAmount     = document.querySelector("#input-amount");
+    let percentage      = document.querySelector("#percentage-fortune");
+    let goalAmount      = document.getElementById("goal-amount").textContent;
+    let progressBar     = document.querySelector(".actualprogress-obj3"); 
+    let localInput      = localStorage.getItem("input"); 
+    let localPercentage = localStorage.getItem("percentage"); 
 
-//Print value from the textArea to the firsttext-fortune value 
-function printAmountCalculate(event) {
-    // Prevent an element to execute as usual, in this case, the submit button 
-    // doesn't refresh the page each time it's clicked 
-    event.preventDefault(); 
-    let textArea    = new Number(event.target.amount.value);
-    let goalAmount  = document.getElementById("goal-amount").textContent; 
-    let inputAmount = document.querySelector("#input-amount");
-    let percentage  = document.querySelector("#percentage-fortune"); 
-    let progressBar = document.querySelector(".actualprogress-obj3"); 
-    
-    if (!!textArea ===  true) {  
-        inputAmount.innerHTML   = `${textArea} /`;
-        let rawPercentage       = `${textArea / goalAmount * 100}`; 
-        percentage.innerHTML    = Math.round(rawPercentage) + '%'; 
-        progressBar.style.width = rawPercentage +'%'; 
-    } else {  
-        inputAmount.innerHTML = `O /`;
-        }  
-    }
-    
-    document.addEventListener("DOMContentLoaded", function() {
+        inputAmount.innerHTML   = localInput;
+        percentage.innerHTML    = localPercentage;
+        progressBar.style.width = localPercentage +'%'; 
+
+   function calculateThenStore(event) { 
+
+        let textArea = new Number(event.target.amount.value);
+        localStorage.setItem("input", textArea);
+        let roundPercentage = Math.round(textArea / goalAmount * 100); 
+        localStorage.setItem("percentage", roundPercentage); 
+  
+    }  
     let button = document.querySelector("#input-fortune");
-    button.addEventListener("submit", printAmountCalculate);
+    button.addEventListener("submit", calculateThenStore);
 });
 
 
