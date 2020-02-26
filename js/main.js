@@ -1,7 +1,6 @@
-// FORTUNE DASHBOARD : Take input from TextArea, print it to page, save it to localStorage,
-// calculate percentage and save to localStorage. Then synchronize % & progress bar
 document.addEventListener("DOMContentLoaded", function() {
-
+  // FORTUNE DASHBOARD : Take input from TextArea, print it to page, save it to localStorage,
+  // calculate percentage and save to localStorage. Then synchronize % & progress bar
     let inputAmount     = document.querySelector("#input-amount");
     let percentage      = document.querySelector("#percentage-fortune");
     let goalAmount      = document.getElementById("goal-amount").textContent;
@@ -9,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let localInput      = localStorage.getItem("input"); 
     let localPercentage = localStorage.getItem("percentage"); 
 
-        inputAmount.innerHTML   = localInput;
-        percentage.innerHTML    = localPercentage;
-        progressBar.style.width = localPercentage +'%'; 
+    inputAmount.innerHTML   = localInput;
+    percentage.innerHTML    = localPercentage;
+    progressBar.style.width = localPercentage +'%'; 
 
    function calculateThenStore(event) { 
 
@@ -23,11 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }  
     let button = document.querySelector("#input-fortune");
     button.addEventListener("submit", calculateThenStore);
-});
 
-
-//ADD COLOR SWITCHES 
-document.addEventListener("DOMContentLoaded", function() {
+  //ADD COLOR SWITCHES 
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
 
@@ -50,5 +46,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     toggleSwitch.addEventListener('change', switchTheme, false);
+    
 
-}) 
+  //SAVE CHECKED CHECKBOXES 
+  // https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
+    
+    let checkboxes = document.querySelectorAll(".check-dash"); 
+
+    var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
+    $checkboxes = $(".check-dash");
+
+    $checkboxes.on("change", function(){
+      $checkboxes.each(function(){
+        checkboxValues[this.id] = this.checked;
+      });
+      
+      localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+    });
+
+    // On page load
+    $.each(checkboxValues, function(key, value) {
+      $("#" + key).prop('checked', value);
+    });
+
+});
