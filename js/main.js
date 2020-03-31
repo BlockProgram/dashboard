@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
   toggleSwitch.addEventListener("change", switchTheme, false);
 
   //SAVE CHECKED CHECKBOXES
-  // https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
+  //   // https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
 
   var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {},
     $checkboxes = $(".check-dash");
@@ -68,3 +68,80 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#" + key).prop("checked", value);
   });
 });
+
+// ATTEMPT TO Refactore CHECKBOXES
+// var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {};
+// const checkBoxes = document.querySelectorAll(".check-dash");
+
+// checkBoxes.forEach(checkbox => {
+//   checkbox.addEventListener("change", () => {
+//     checkboxValues[this.id] = this.checked;
+//   });
+
+//   // checkBoxes.addEventListener("change", () => {
+//   //   checkBoxes.forEach(() => {
+//   //     checkboxValues[this.id] = this.checked;
+//   //   });
+
+//   localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+// });
+
+// function initialize(checkbox) {
+//   checkbox.forEach(function(key, value) {
+//     checkbox("#" + key).setAttribute("checked", value);
+//   });
+// }
+
+//Pick a new quote randomly on loading
+const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.querySelector(
+  ".dash-object5 .statement-obj5 .quote-author"
+);
+
+let quote1 = {
+    author: "Malcolm X",
+    text: "The future belongs to those who prepare for it today."
+  },
+  quote2 = {
+    author: "50 Cent",
+    text: "Get rich or die tryin'"
+  },
+  quote3 = {
+    author: "David Goggins",
+    text: "Suffer motherfucker"
+  },
+  quote4 = {
+    author: "A rich guy",
+    text: "The most powerful force in the universe is compound interest. "
+  },
+  quote5 = {
+    author: "Me",
+    text: "Only death can stop me"
+  },
+  quote6 = {
+    author: "Gary Vee",
+    text: "Hustle for years and be grateful for it"
+  },
+  quote7 = {
+    author: "Ray Kurzweil",
+    text: "The singularity is coming"
+  },
+  quote8 = {
+    author: "Serge Faguet",
+    text:
+      "One of the many cool, ultrapowerful and ultraintelligent posthuman beings."
+  };
+let quotes = [quote1, quote2, quote3, quote4, quote5, quote6, quote7, quote8];
+
+// Randomize and print quote
+window.onload = function randomQuote() {
+  const quoteText = document.getElementById("quote-text");
+  const quoteAuthor = document.getElementById("quote-author");
+
+  const random = Math.floor(Math.random() * quotes.length);
+
+  const chosenQuote = quotes[random];
+
+  quoteText.innerText = chosenQuote.text;
+  quoteAuthor.innerText = chosenQuote.author;
+};
