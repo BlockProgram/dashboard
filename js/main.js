@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // FORTUNE DASHBOARD : Take input from TextArea, print it to page, save it to localStorage,
   // calculate percentage and save to localStorage. Then synchronize % & progress bar
 
@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {},
     $checkboxes = $(".check-dash");
 
-  $checkboxes.on("change", function() {
-    $checkboxes.each(function() {
+  $checkboxes.on("change", function () {
+    $checkboxes.each(function () {
       checkboxValues[this.id] = this.checked;
     });
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // On page load
-  $.each(checkboxValues, function(key, value) {
+  $.each(checkboxValues, function (key, value) {
     $("#" + key).prop("checked", value);
   });
 });
@@ -98,49 +98,45 @@ const quoteAuthor = document.querySelector(
   ".dash-object5 .statement-obj5 .quote-author"
 );
 
-let quote1 = {
+let quotesObj = {
+  quote1: {
     author: "Malcolm X",
-    text: "The future belongs to those who prepare for it today."
+    text: "The future belongs to those who prepare for it today.",
   },
-  quote2 = {
+  quote2: {
     author: "50 Cent",
-    text: "Get rich or die tryin'"
+    text: "Get rich or die tryin'",
   },
-  quote3 = {
-    author: "David Goggins",
-    text: "Suffer motherfucker"
-  },
-  quote4 = {
+  quote3: {
     author: "A rich guy",
-    text: "The most powerful force in the universe is compound interest. "
+    text: "The most powerful force in the universe is compound interest. ",
   },
-  quote5 = {
-    author: "Me",
-    text: "Only death can stop me"
-  },
-  quote6 = {
+  quote4: {
     author: "Gary Vee",
-    text: "Hustle for years and be grateful for it"
+    text: "Hustle for years and be grateful for it",
   },
-  quote7 = {
+  quote5: {
     author: "Ray Kurzweil",
-    text: "The singularity is coming"
+    text: "The singularity is coming",
   },
-  quote8 = {
+  quote6: {
     author: "Serge Faguet",
     text:
-      "One of the many cool, ultrapowerful and ultraintelligent posthuman beings."
-  };
-let quotes = [quote1, quote2, quote3, quote4, quote5, quote6, quote7, quote8];
+      "One of the many cool, ultrapowerful and ultraintelligent posthuman beings.",
+  },
+};
+
+let quotesArray = Object.values(quotesObj);
+console.log(quotesArray);
 
 // Randomize and print quote
 window.onload = function randomQuote() {
   const quoteText = document.getElementById("quote-text");
   const quoteAuthor = document.getElementById("quote-author");
 
-  const random = Math.floor(Math.random() * quotes.length);
+  const random = Math.floor(Math.random() * quotesArray.length);
 
-  const chosenQuote = quotes[random];
+  const chosenQuote = quotesArray[random];
 
   quoteText.innerText = chosenQuote.text;
   quoteAuthor.innerText = chosenQuote.author;

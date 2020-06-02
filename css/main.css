@@ -359,7 +359,7 @@ input:hover {
 }
 .thirdrow-obj3 {
   display: grid;
-  grid-template-columns: 2fr 1fr 5% 1fr;
+  grid-template-columns: 2.5fr 0.5fr 5% 1fr;
   place-items: center center;
   position: relative;
 }
@@ -621,10 +621,10 @@ input:hover {
   display: block;
 }
 .checkbox-container .checkmark:after {
-  left: 7px;
-  top: 3px;
+  left: 10px;
+  top: 2px;
   width: 5px;
-  height: 10px;
+  height: 16px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
