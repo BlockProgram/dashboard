@@ -50,47 +50,24 @@ document.addEventListener("DOMContentLoaded", function () {
   toggleSwitch.addEventListener("change", switchTheme, false);
 
   //SAVE CHECKED CHECKBOXES
-  //   // https://www.sitepoint.com/quick-tip-persist-checkbox-checked-state-after-page-reload/
+  var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {};
+  const checkboxes = document.querySelectorAll(".check-dash");
 
-  var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {},
-    $checkboxes = $(".check-dash");
-
-  $checkboxes.on("change", function () {
-    $checkboxes.each(function () {
-      checkboxValues[this.id] = this.checked;
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      checkboxValues[checkbox.id] = checkbox.checked;
+      localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
     });
-
-    localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
   });
 
-  // On page load
-  $.each(checkboxValues, function (key, value) {
-    $("#" + key).prop("checked", value);
+  Object.keys(checkboxValues).map((key) => {
+    let element = document.getElementById(`${key}`);
+
+    if (checkboxValues[key] === true) {
+      element.setAttribute("checked", true);
+    }
   });
 });
-
-// ATTEMPT TO Refactore CHECKBOXES
-// var checkboxValues = JSON.parse(localStorage.getItem("checkboxValues")) || {};
-// const checkBoxes = document.querySelectorAll(".check-dash");
-
-// checkBoxes.forEach(checkbox => {
-//   checkbox.addEventListener("change", () => {
-//     checkboxValues[this.id] = this.checked;
-//   });
-
-//   // checkBoxes.addEventListener("change", () => {
-//   //   checkBoxes.forEach(() => {
-//   //     checkboxValues[this.id] = this.checked;
-//   //   });
-
-//   localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
-// });
-
-// function initialize(checkbox) {
-//   checkbox.forEach(function(key, value) {
-//     checkbox("#" + key).setAttribute("checked", value);
-//   });
-// }
 
 //Pick a new quote randomly on loading
 const quoteText = document.getElementById("quote-text");
@@ -127,7 +104,6 @@ let quotesObj = {
 };
 
 let quotesArray = Object.values(quotesObj);
-console.log(quotesArray);
 
 // Randomize and print quote
 window.onload = function randomQuote() {
