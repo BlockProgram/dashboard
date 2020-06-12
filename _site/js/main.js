@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let localInput = localStorage.getItem("input");
   let localPercentage = localStorage.getItem("percentage");
 
-  inputAmount.innerHTML = localInput;
+  inputAmount.innerHTML = `${localInput} /`;
   percentage.innerHTML = localPercentage;
   progressBar.style.width = localPercentage + "%";
 
@@ -82,7 +82,7 @@ let quotesObj = {
   },
   quote2: {
     author: "50 Cent",
-    text: "Get rich or die tryin'",
+    text: "Get rich or die tryin.'",
   },
   quote3: {
     author: "A rich guy",
@@ -90,16 +90,29 @@ let quotesObj = {
   },
   quote4: {
     author: "Gary Vee",
-    text: "Hustle for years and be grateful for it",
+    text: "Hustle for years and be grateful for it.",
   },
   quote5: {
     author: "Ray Kurzweil",
-    text: "The singularity is coming",
+    text: "The singularity is coming.",
   },
   quote6: {
     author: "Serge Faguet",
     text:
       "One of the many cool, ultrapowerful and ultraintelligent posthuman beings.",
+  },
+  quote7: {
+    author: "Albert Einstein",
+    text:
+      "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.",
+  },
+  quote8: {
+    author: "Zeno of Citium",
+    text: "Man conquers the world by conquering himself.",
+  },
+  quote9: {
+    author: "Jocko Willink",
+    text: "Discipline equals freedom.",
   },
 };
 

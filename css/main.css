@@ -138,6 +138,7 @@ a img {
   --default-bg-dashboard: #fff;
   --shadow-dash: 3px 3px 10px #000;
   --font-color: #000;
+  --border-checkboxes: #767674;
 }
 
 [data-theme="dark"] {
@@ -178,7 +179,7 @@ input:hover {
 .side-menu {
   background-color: var(--sidemenu-bg, aqua);
   grid-area: sidemenu;
-  transform: translate(-100%);
+  transform: translate(-150%);
   transition: transform 0.2s ease-in;
 }
 
@@ -245,7 +246,7 @@ input:hover {
   gap: 20px;
   grid-area: dashboard;
   grid-template-columns: repeat(3, 33%);
-  grid-template-rows: 170px 82px 82px 120px 82px 160px;
+  grid-template-rows: 170px 82px 82px 120px 82px 90px;
   grid-template-areas:
     "object1 object2 object3"
     "object4 object2 object7"
@@ -274,7 +275,7 @@ input:hover {
   background-color: var(--first-dash-color);
   display: grid;
   grid-area: object1;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 2fr;
 }
 
 .firstrow-obj1 {
@@ -356,7 +357,7 @@ input:hover {
   background-color: var(--sidemenu-bg);
   display: grid;
   grid-area: object3;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1.3fr 1.3fr;
 }
 
 .firstrow-obj3 {
@@ -392,13 +393,9 @@ input:hover {
   max-width: 100%;
 }
 
-.dashboard-container .signs-obj3 {
-  margin: 0;
-}
-
 .thirdrow-obj3 {
   display: grid;
-  grid-template-columns: 2.5fr 0.5fr 5% 1fr;
+  grid-template-columns: 2.5fr 1fr 1fr;
   place-items: center center;
 }
 
@@ -450,10 +447,6 @@ input:hover {
   grid-template-columns: 1fr 4fr;
 }
 
-.dash-object4 .square-icon {
-  place-self: start start;
-}
-
 .fa-weebly {
   color: #fff;
 }
@@ -464,22 +457,12 @@ input:hover {
 
 .secondrow-obj4 {
   display: grid;
-  grid-template: repeat(5, 1fr) / 1fr 4fr;
+  grid-template: repeat(4, 1fr) / 1fr 4fr;
 }
 
 .text-obj4 {
   color: #fff;
   place-self: center start;
-}
-
-.checkboxes-wrapper1 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.checkboxes-wrapper2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .check-obj4 {
@@ -501,10 +484,6 @@ input:hover {
 .title-obj5 {
   color: #fff;
   min-width: 130px;
-}
-
-.dash-object5 .square-icon {
-  place-self: start start;
 }
 
 .fa-lightbulb {
@@ -539,11 +518,6 @@ input:hover {
   display: grid;
   grid-area: object6;
   grid-template-rows: 1fr 3fr;
-  height: 73%;
-}
-
-.dash-object6 .square-icon {
-  place-self: center end;
 }
 
 .firstrow-obj6 {
@@ -556,7 +530,7 @@ input:hover {
   gap: 15px;
   grid-template-columns: 0.9fr 1fr 0.9fr;
   height: 100%;
-  margin-top: 27px;
+  margin-top: 25px;
   place-self: start center;
   width: 100%;
 }
@@ -568,7 +542,7 @@ input:hover {
   box-sizing: border-box;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  height: 109px;
+  height: 119px;
 }
 
 .subcol-obj6:nth-child(1) {
@@ -589,10 +563,10 @@ input:hover {
   place-self: center center;
 }
 
-.text-obj6 {
+.dashboard-container .text-obj6 {
   color: #fff;
   font-size: 1.4rem;
-  place-self: center center;
+  margin: 10px auto 0;
 }
 
 .dash-object7 {
@@ -603,12 +577,7 @@ input:hover {
   grid-template-rows: 1fr 4fr;
 }
 
-.dash-object7 .square-icon {
-  place-self: center start;
-}
-
 .dash-object7 .fa-laptop-code {
-  font-size: 2.5rem;
   color: var(--sidemenu-bg);
 }
 
@@ -633,7 +602,6 @@ input:hover {
 .dash-object8 {
   display: grid;
   grid-area: object8;
-  height: 73%;
   place-content: end end;
 }
 
@@ -641,17 +609,10 @@ input:hover {
   place-self: end end;
 }
 
-.dashboard-container .title-dash {
+.title-dash {
   font-size: 1.35rem;
   margin: 0;
   place-self: center center;
-}
-
-.square-icon {
-  background-color: transparent;
-  position: relative;
-  place-self: start end;
-  width: 55px;
 }
 
 .icon-dash {
@@ -660,6 +621,10 @@ input:hover {
   position: relative;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.icon-dash.tmetric-logo {
+  height: 45px;
 }
 
 /* CHECKBOX STYLES */
@@ -684,6 +649,7 @@ input:hover {
 }
 
 .checkmark {
+  border: 1px solid var(--border-checkboxes);
   position: absolute;
   top: 0;
   left: 0;
@@ -727,7 +693,6 @@ input:hover {
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
 }
 
 .text-switch {
@@ -786,56 +751,230 @@ input:checked + .slider:before {
 }
 
 /* MEDIA QUERY */
-@media (max-width: 950px) {
-  html {
-    width: 100%;
-  }
-
-  .side-menu a {
-    font-size: 0.8rem;
-    padding: 0.3rem;
-  }
-
+@media (max-width: 1140px) {
   .page-container {
-    grid-template: 1fr 20fr / 1fr 13fr;
-  }
-
-  .dashboard-container {
-    display: grid;
-    grid-template: repeat(7, auto) / 1fr 6fr;
+    grid-template: 5.5% 94.5% / 10% 90%;
     grid-template-areas:
-      "object8"
-      "object1 "
-      "object2 "
-      "object3 "
-      "object4 "
-      "object6 "
-      "object5 "
-      "object7 ";
-    overflow: hidden;
-    margin: 0 3vw 6vw;
+      "label checkbox"
+      "sidemenu dashboard";
   }
 
-  .dash-object3 .button-fortune {
-    position: relative;
-    top: 0%;
-    left: 0%;
+  .textarea-fortune {
+    width: 80px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .dashboard-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 170px 82px 82px 120px 82px 90px 90px 200px;
+    grid-template-areas:
+      "object1 object2 "
+      "object4 object2 "
+      "object4 object3 "
+      "object4 object3 "
+      "object6 object5 "
+      "object6 object5 "
+      "object7 object5 "
+      "object7 object8 ";
+    margin: 0 30px 60px 20px;
   }
 
-  .dash-object6 {
-    height: 100%;
+  .textarea-fortune {
+    width: auto;
   }
+}
 
-  .secondrow-obj6 {
-    box-sizing: border-box;
-    grid-template-columns: 31% 32% 26.4%;
-  }
-
-  .dash-object8 {
-    height: 100%;
+@media (max-width: 885px) {
+  .page-container {
+    grid-template: 5.5% 94.5% / 12.5% 87.5%;
+    grid-template-areas:
+      "label checkbox"
+      "sidemenu dashboard";
   }
 
   .text-switch {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 815px) {
+  .textarea-fortune {
+    width: 80px;
+  }
+
+  .side-menu a {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 715px) {
+  .title-dash {
+    font-size: 1.25rem;
+  }
+
+  .textarea-fortune {
+    width: 60px;
+  }
+}
+
+@media (max-width: 665px) {
+  .page-container {
+    grid-template: 3% 97% / 15% 85%;
+    grid-template-areas:
+      "label checkbox"
+      "sidemenu dashboard";
+  }
+
+  .dashboard-container {
+    gap: 15px;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px 160px 300px 180px 300px 300px 190px 300px;
+    grid-template-areas:
+      "object8"
+      "object1 "
+      "object4 "
+      "object3 "
+      "object2 "
+      "object5 "
+      "object6 "
+      "object7 ";
+  }
+
+  .side-menu {
+    height: 750px;
+  }
+
+  .checkbox-container {
+    margin: 0 16px 23px 30px;
+  }
+
+  .textarea-fortune {
+    width: auto;
+  }
+
+  .dash-object8 {
+    place-content: start center;
+  }
+
+  .subcol-obj6 {
+    height: 117px;
+  }
+}
+
+@media (max-width: 550px) {
+  .page-container {
+    grid-template: 3% 97% / 20% 80%;
+    grid-template-areas:
+      "label checkbox"
+      "sidemenu dashboard";
+  }
+
+  .title-dash {
+    font-size: 1.15rem;
+  }
+
+  .icon-dash {
+    font-size: 2rem;
+  }
+
+  .pivotal-logo {
+    height: 30px;
+  }
+
+  .icon-dash.tmetric-logo {
+    height: 35px;
+  }
+
+  .empire-obj1,
+  .coding-obj1 {
+    padding: 0.6rem;
+  }
+
+  .secondrow-obj2 .text-obj2 {
+    margin-left: 23px;
+  }
+
+  .quote-obj5,
+  .quote-author {
+    font-size: 1.1rem;
+  }
+
+  .secondrow-obj6 {
+    gap: 10px;
+  }
+
+  .dashboard-container .text-obj6 {
+    font-size: 1.15rem;
+  }
+
+  .subcol-obj6 {
+    height: 119px;
+  }
+}
+
+@media (max-width: 490px) {
+  .textarea-fortune {
+    width: 80px;
+  }
+}
+
+@media (max-width: 410px) {
+  .page-container {
+    grid-template: 3% 97% / 22% 78%;
+    grid-template-areas:
+      "label checkbox"
+      "sidemenu dashboard";
+  }
+
+  .side-menu {
+    min-width: 79px;
+  }
+
+  .dashboard-container {
+    grid-template-rows: 60px 160px 300px 180px 340px 300px 190px 300px;
+    margin: 0 20px 60px 10px;
+  }
+
+  .dashboard-container p {
+    margin: 0 5px 0 23px;
+  }
+
+  .checkbox-container {
+    margin: 0 16px 23px 15px;
+  }
+
+  .empire-obj1 p,
+  .coding-obj1 p {
+    margin: 0;
+  }
+
+  .textarea-fortune {
+    width: 60px;
+  }
+
+  .side-menu a {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 356px) {
+  .page-container {
+    grid-template: 3% 97% / 24% 76%;
+    grid-template-areas:
+      "label checkbox"
+      "sidemenu dashboard";
+  }
+
+  .dashboard-container {
+    margin: 0 10px 60px 10px;
+  }
+
+  .thirdrow-obj3 {
+    grid-template-columns: 2fr 1.25fr 1.25fr;
+  }
+
+  .input-fortune {
+    flex-direction: column;
   }
 }
