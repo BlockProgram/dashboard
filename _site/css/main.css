@@ -816,6 +816,11 @@ input:checked + .slider:before {
   .textarea-fortune {
     width: 60px;
   }
+
+  .quote-obj5,
+  .quote-author {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 665px) {

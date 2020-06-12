@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let localInput = localStorage.getItem("input");
   let localPercentage = localStorage.getItem("percentage");
 
-  inputAmount.innerHTML = `${localInput} /`;
+  localInput
+    ? (inputAmount.innerHTML = `${localInput} /`)
+    : (inputAmount.innerHTML = "0 /");
   percentage.innerHTML = localPercentage;
   progressBar.style.width = localPercentage + "%";
 
